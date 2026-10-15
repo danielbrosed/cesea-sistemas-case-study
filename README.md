@@ -62,15 +62,15 @@ I designed and built the experience end to end: the visual bible, the production
 The hard part of a generated walk-through is not making one good clip. It is making thirty-five seconds of clips look like **one building, one light, one character** — and making every join invisible when the viewer can stop on any frame. I had already learned this the expensive way on the City (see [below](#the-city)), so the Office was planned as a production, not a prompt.
 
 ```mermaid
-flowchart LR
-  B["Visual bible<br/>+ master references"] --> K0["Room N<br/>approved still"]
-  K0 -->|"exploration clip<br/>start frame only"| X["Camera turns, door opens,<br/>next room is revealed"]
-  X -->|"last frame, furnished<br/>with the team"| K1["Room N+1<br/>approved still"]
-  K1 --> L["Real logo composited<br/>(homography)"]
-  K0 --> F["Final clip<br/>start + end fixed"]
+flowchart TB
+  B["Visual bible + master references"] --> K0["Room N · approved still"]
+  K0 -->|"exploration clip, start frame only"| X["The camera turns and walks through a real door"]
+  X -->|"last frame, furnished with the team"| K1["Room N+1 · approved still"]
+  K1 -->|"real logo composited (homography)"| L["Room N+1 · final still"]
+  K0 --> F["Final clip · both ends fixed"]
   L --> F
-  F --> P["Post: zoom ramp,<br/>block-flow anchoring"]
-  P --> E["Encode: H.264,<br/>keyframe every 6"]
+  F --> P["Post · zoom ramp + block-flow anchoring"]
+  P --> E["H.264 · keyframe every 6 · no B-frames"]
   E --> W["Scroll engine"]
 ```
 
